@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="getNews()">
+  <table>
+    <tr>
+      <td>Country: </td>
+      <td>
+        <select name="country" id="country" formControlName="country" (change)="onCountryChange($event)">
+          <option *ngFor="let c of countries" value="{{c.code}}">{{c.name}}</option>
+        </select>
+      </td>
+      <td>
+        <img [src]="flag" width="40">
+      </td>
+    </tr>
+    <tr>
+      <td>Category: </td>
+      <td>
+        <select name="category" id="category" formControlName="category">
+          <option *ngFor="let cg of categories" value="{{cg}}">{{cg}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="form.invalid"> Get News </button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<app-news-display></app-news-display>

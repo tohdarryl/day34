@@ -1,0 +1,30 @@
+<h1>YAWA</h1>
+
+<form [formGroup]="form" (ngSubmit)="getWeather()">
+  <table>
+    <tr>
+      <td>City name:</td>
+      <td>
+        <input type="text" size="30" formControlName="city">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="form.invalid"> Get Weather</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<app-weather-display></app-weather-display>
+
+
+<!-- <h3>Weather report</h3>
+<table>
+  <tr *ngFor="let w of weather">
+    <td><img src="https://openweathermap.org/img/wn/{{w.icon}}@2x.png"></td>
+    <td><code>{{w.main}} - {{w.description}}</code></td>
+  </tr>
+</table> -->
+

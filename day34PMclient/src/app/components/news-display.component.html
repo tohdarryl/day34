@@ -1,0 +1,36 @@
+<div *ngIf="articles$ | async as articleData; else noData">
+    <h3>Articles</h3>
+
+    <table *ngFor="let a of articleData">
+        <!-- <tr>
+            <td>json </td>
+            <td><code>{{a | json }}</code></td>
+        </tr> -->
+        <tr>
+            <td>Title: </td>
+            <td><code>{{a.title}}</code></td>
+        </tr>
+        <tr>
+            <td>Author: </td>
+            <td><code>{{a.author}}</code></td>
+        </tr>
+        <tr>
+            <td>Description: </td>
+            <td><code>{{a.description}}</code></td>
+        </tr>
+        <tr>
+            <td>Image: </td>
+            <td><img src="{{a.urlToImage}}" style="width:100px;height:100px;"></td>
+        </tr>
+        <tr>
+            <td>Link: </td>
+            <td><a href="{{a.url}}"> Link to Article </a></td>
+        </tr>
+    </table>
+
+</div>
+
+
+<ng-template #noData>
+    <h2>Please select Country and Category</h2>
+</ng-template>
